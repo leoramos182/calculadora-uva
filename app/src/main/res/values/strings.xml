@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Calcular notas UVA</string>
+    <string name="forum">forum</string>
+    <string name="ava1">AVA1</string>
+    <string name="ava2">AVA2</string>
+    <string name="ava3">AVA3</string>
+    <string name="resultado">Resultado</string>
+    <string name="calcular">Calcular</string>
+
+</resources>
