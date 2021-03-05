@@ -1,17 +1,22 @@
 package com.example.uvagradecalculator
 
+import android.graphics.Color.GREEN
+import android.graphics.Color.RED
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.core.graphics.toColorInt
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
+        var statusFinal : String = ""
         val btCalcular = calcular
         val textResult = resultado
         var mediaA1 : Double? = 0.0
+        var mediaA2 : Double? = 0.0
+        var mediaFinal : Double? = 0.0
         btCalcular.setOnClickListener {
             //NOTAS DE FORUM E TRABALHOS
             var notaForum : Double? = forum.text.toString().toDoubleOrNull()
@@ -48,12 +53,37 @@ class MainActivity : AppCompatActivity() {
                    mediaA1 = (notaForum + notaAva1)
                 }
             }
+            if (notaAva2 != null && notaAva3 != null) {
+                if(notaAva2 > 4) mediaA2 = notaAva2
+                if(notaAva2 <= 4 && notaAva3 > 4){
+                    mediaA2 = notaAva3
+                }
+            }
+            mediaFinal = (mediaA1!! + mediaA2!!) / 2
+            if(mediaFinal!! >= 6.0){
+                statusFinal = "Aprovado"
+                textResult.setText(
+                    "\nMEDIA A1: $mediaA1"+
+                    "\nMEDIA A2: $mediaA2"+
+                    "\nMEDIA FINAL: $mediaFinal"+
+                    "\nStatus: $statusFinal")
+                textResult.setTextColor(GREEN)
+            }else{
+                statusFinal = "Reprovado"
+                textResult.setText("" +
+                        "\nMEDIA A1: $mediaA1\"+\n" +
+                        "\nMEDIA A2: $mediaA2\"+\n" +
+                        "\nMEDIA FINAL: $mediaFinal\"+\n" +
+                        "\nStatus: $statusFinal\"")
+                textResult.setTextColor(RED)
+            }
 
-                //MEDIAS DAS NOTAS
 
-
-            textResult.text = "TESTE 1: $notaForum\nTESTE 2: $notaAva1\nTESTE 3: $notaAva2\nTESTE 4: $notaAva3"+
-                    "\nMEDIA A1: $mediaA1"
+            textResult.text =
+                    "\nMEDIA A1: $mediaA1"+
+                    "\nMEDIA A2: $mediaA2"+
+                    "\nMEDIA FINAL: $mediaFinal"+
+                    "\nStatus: $statusFinal"
 
         }
     }
