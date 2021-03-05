@@ -1,6 +1,7 @@
 # Calculadora de notas para Universidade Veiga de Almeida :no_mouth:
 
-<img src="C:\Users\USUARIO\Desktop\calcUva.png" alt="calcUva" style="zoom:80%;" />
+![calcUva](https://user-images.githubusercontent.com/10377511/110055985-bc901100-7d3c-11eb-88a2-0f478ef5783e.png)
+
 
 ## Funcionalidades
 
